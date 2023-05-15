@@ -1,15 +1,17 @@
-import React from "react";
-import { use, useEffect, Suspense } from "react";
+import { use, useEffect, Suspense, memo } from "react";
+import { useRouter } from "next/navigation";
 
-const Indexes = () => {
+import { Index as CSRIndex } from "./client_data";
+
+export const Index = memo(() => {
   const { date } = use(getData());
-  console.log("item");
-  console.log(date);
 
-  return <div>{date}</div>;
-};
-
-export default Indexes;
+  return (
+    <>
+      <CSRIndex date={date} />
+    </>
+  );
+});
 
 /**
  *
@@ -24,8 +26,7 @@ export async function getData() {
   // const url = "https://jsonplaceholder.typicode.com/users";
 
   const options = {
-    revalidate: 3,
-    // next: { revalidate: 10 },
+    next: { revalidate: 10 },
   };
 
   const res = await fetch(url, options);
