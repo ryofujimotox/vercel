@@ -4,7 +4,7 @@ import { use, useEffect, Suspense, memo } from "react";
 import { useRouter } from "next/navigation";
 import { getData } from "./render";
 
-export const Index = memo(({ date }: { date: string }) => {
+function ViewClientData({ date }: { date: string }) {
   const router = useRouter();
 
   const update = () => {
@@ -19,4 +19,6 @@ export const Index = memo(({ date }: { date: string }) => {
       <button onClick={update}>update</button>
     </>
   );
-});
+}
+
+export const Index = memo(ViewClientData);

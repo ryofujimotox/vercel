@@ -3,15 +3,11 @@ import { useRouter } from "next/navigation";
 
 import { Index as CSRIndex } from "./client_data";
 
-export const Index = memo(() => {
+function RenderIndex() {
   const { date } = use(getData());
-
-  return (
-    <>
-      <CSRIndex date={date} />
-    </>
-  );
-});
+  return <CSRIndex date={date} />;
+}
+export const Index = memo(RenderIndex);
 
 /**
  *
