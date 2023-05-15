@@ -2,7 +2,7 @@ import React from "react";
 import { use, useEffect, Suspense } from "react";
 
 const Indexes = () => {
-  const {date} = use(getData());
+  const { date } = use(getData());
   console.log("item");
   console.log(date);
 
@@ -23,12 +23,14 @@ export async function getData() {
   const url = "https://ryo1999.com/now.php";
   // const url = "https://jsonplaceholder.typicode.com/users";
 
-  const options = { next: { revalidate: 10 } };
+  const options = {
+    revalidate: 3,
+    // next: { revalidate: 10 },
+  };
 
   const res = await fetch(url, options);
   // console.log(res);
-  const data = await res.json()
-
+  const data = await res.json();
 
   return data;
 }
