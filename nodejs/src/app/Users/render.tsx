@@ -1,4 +1,4 @@
-import { use, useEffect, Suspense, memo } from "react";
+import { use, useEffect, Suspense, memo, cache } from "react";
 import { useRouter } from "next/navigation";
 
 import { Index as CSRIndex } from "./client_data";
@@ -15,7 +15,7 @@ export const Index = memo(RenderIndex);
  *
  * @returns
  */
-export async function getData() {
+const getData = async () => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const url = "https://ryo1999.com/now.php";
@@ -30,4 +30,8 @@ export async function getData() {
   const data = await res.json();
 
   return data;
-}
+};
+
+const cacheGetData = cache(getData);
+
+export { getData, cacheGetData };

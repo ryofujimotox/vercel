@@ -1,24 +1,36 @@
 "use client";
 
-import { use, useEffect, Suspense, memo } from "react";
+import { use, useEffect, Suspense, memo, useState, cache } from "react";
 import { useRouter } from "next/navigation";
-import { getData } from "./render";
+import { cacheGetData, getData } from "./render";
 
 function ViewClientData({ date }: { date: string }) {
   const router = useRouter();
 
-  const update = () => {
-    // getData();
+  // const { date: newDate } = use(getData());
+  const [data, setData] = useState(date);
+
+  useEffect(() => {
+    updateDate();
+  }, []);
+
+  const updateDate = async () => {
+    setTimeout(() => {
+      setData("newDate");
+    }, 3000);
+  };
+
+  const update = async () => {
     router.refresh();
   };
 
   return (
-    <>
-      <div>{date}</div>
+    <Suspense fallback={<p className="mt-4">ユーザデータ　Loading...</p>}>
+      <div>{data}</div>
 
       <button onClick={update}>update</button>
-    </>
+    </Suspense>
   );
 }
 
-export const Index = memo(ViewClientData);
+export const Index = ViewClientData;
