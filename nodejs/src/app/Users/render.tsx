@@ -5,9 +5,13 @@ import { Index as CSRIndex } from "./client_data";
 
 function RenderIndex() {
   const { date } = use(getData());
-  return <CSRIndex date={date} />;
+  return (
+    <Suspense fallback={<div>CSR中</div>}>
+      <CSRIndex date={date} />
+    </Suspense>
+  );
 }
-export const Index = memo(RenderIndex);
+export const Index = RenderIndex;
 
 /**
  *

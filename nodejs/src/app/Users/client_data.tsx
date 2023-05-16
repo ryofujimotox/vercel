@@ -4,10 +4,10 @@ import { use, useEffect, Suspense, memo, useState, cache } from "react";
 import { useRouter } from "next/navigation";
 import { cacheGetData, getData } from "./render";
 
-function ViewClientData({ date }: { date: string }) {
+const ViewClientData = ({ date }: { date: string }) => {
   const router = useRouter();
 
-  // const { date: newDate } = use(getData());
+  const { date: newDate } = use(getData());
   const [data, setData] = useState(date);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function ViewClientData({ date }: { date: string }) {
 
   const updateDate = async () => {
     setTimeout(() => {
-      setData("newDate");
+      // setData("newDate");
     }, 3000);
   };
 
@@ -29,8 +29,11 @@ function ViewClientData({ date }: { date: string }) {
       <div>{data}</div>
 
       <button onClick={update}>update</button>
+
+      <div>{newDate}</div>
     </Suspense>
   );
-}
+};
 
+export default ViewClientData;
 export const Index = ViewClientData;
