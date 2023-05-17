@@ -28,7 +28,7 @@ const getData = async () => {
   // const url = "https://jsonplaceholder.typicode.com/users";
 
   const options = {
-    next: { revalidate: 10 },
+    next: { revalidate: 60 },
   };
 
   const res = await fetch(url, options);
