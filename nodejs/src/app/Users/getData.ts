@@ -1,5 +1,7 @@
-// 同じ関数で引数だけ変えてrevalidateを変えた場合、低い方に揃っていた。
-const getData = async (revalidate: number = 60) => {
+import { cache } from "react";
+
+//　3 つのうちの最も低い値が使用されます。
+const getData = cache(async (revalidate: number = 60) => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const url = "https://ryo1999.com/now.php";
@@ -11,6 +13,6 @@ const getData = async (revalidate: number = 60) => {
 
   const res = await fetch(url, options);
   return res.json();
-};
+});
 
 export { getData };
