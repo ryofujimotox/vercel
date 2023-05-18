@@ -3,9 +3,9 @@
 import { use, useEffect, Suspense, memo, useState, cache } from "react";
 import { useRouter } from "next/navigation";
 
-import { getData } from "./getData";
+import { getData2 as getData } from "./getData";
 
-export const revalidate = 5;
+export const revalidate = 10;
 
 const ViewClientData = () => {
   const router = useRouter();
