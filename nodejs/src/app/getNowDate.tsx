@@ -1,5 +1,3 @@
-export const revalidate = 99999;
-
 const format = new Intl.DateTimeFormat("ja-JP", {
   timeZone: "Asia/Tokyo",
   timeStyle: "full",
