@@ -6,7 +6,7 @@ import { getData } from "./getData";
 // export const revalidate = 60;
 
 const main = () => {
-  const { date } = use(getData(0));
+  const { date } = use(getData(120));
 
   return (
     <div>
