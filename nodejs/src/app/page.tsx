@@ -1,6 +1,8 @@
 import React from "react";
 import { Index } from "./Users/index";
 
+export const revalidate = 0;
+
 const format = new Intl.DateTimeFormat("ja-JP", {
   timeZone: "Asia/Tokyo",
   timeStyle: "full",
