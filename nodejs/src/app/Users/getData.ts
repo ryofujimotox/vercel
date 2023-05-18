@@ -1,4 +1,5 @@
 import { cache } from "react";
+// import "server-only";
 
 //　3 つのうちの最も低い値が使用されます。
 const getData = cache(async (revalidate: number = 60) => {
@@ -8,6 +9,10 @@ const getData = cache(async (revalidate: number = 60) => {
   // const url = "https://jsonplaceholder.typicode.com/users";
 
   const options = {
+    // デフォルトはSSG
+    // cache: 'force-cache',
+    // キャッシュなし
+    // cache: 'no-store',
     next: { revalidate: revalidate },
   };
 
