@@ -1,19 +1,11 @@
 import React from "react";
 import { Index } from "./Users/index";
-
-export const revalidate = false;
-
-const format = new Intl.DateTimeFormat("ja-JP", {
-  timeZone: "Asia/Tokyo",
-  timeStyle: "full",
-});
+import getNowDate from "./getNowDate";
 
 const main = () => {
-  const now = new Date();
-
   return (
     <>
-      <div>Build: {format.format(now)}</div>
+      <div>Build: {getNowDate()}</div>
       <div>--------v4</div>
       <Index />
     </>
