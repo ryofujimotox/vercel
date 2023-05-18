@@ -4,7 +4,7 @@ import { getData } from "./getData";
 import CcButtons from "./date_cc";
 
 const ViewClientData = () => {
-  const { date: newDate } = use(getData(60));
+  const { date: newDate } = use(getData(10));
 
   return (
     <>
