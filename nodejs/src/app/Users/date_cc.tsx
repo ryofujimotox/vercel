@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 
 import { getData } from "./getData";
 
+export const revalidate = 30;
+
 const ViewClientData = () => {
   const router = useRouter();
   const update = async () => {
