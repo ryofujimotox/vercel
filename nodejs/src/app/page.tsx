@@ -12,4 +12,6 @@ const main = () => {
   );
 };
 
+export const revalidate = 99999;
+
 export default main;
