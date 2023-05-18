@@ -3,7 +3,7 @@ import { Index as Render } from "./date_use";
 
 import { getData } from "./getData";
 
-export const revalidate = 60;
+// export const revalidate = 60;
 
 const main = () => {
   const { date } = use(getData());

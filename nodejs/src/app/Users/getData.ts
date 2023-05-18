@@ -5,7 +5,7 @@ const getData = async () => {
   // const url = "https://jsonplaceholder.typicode.com/users";
 
   const options = {
-    next: { revalidate: 0 },
+    next: { revalidate: 60 },
   };
 
   const res = await fetch(url, options);
@@ -15,6 +15,7 @@ const getData = async () => {
   return data;
 };
 
+// 同じ関数で引数だけ変えてrevalidateを変えた場合、低い方に揃っていた。
 const getData2 = async () => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
 
@@ -22,7 +23,7 @@ const getData2 = async () => {
   // const url = "https://jsonplaceholder.typicode.com/users";
 
   const options = {
-    next: { revalidate: 0 },
+    next: { revalidate: 10 },
   };
 
   const res = await fetch(url, options);
