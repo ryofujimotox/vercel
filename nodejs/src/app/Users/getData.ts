@@ -1,3 +1,4 @@
+// 同じ関数で引数だけ変えてrevalidateを変えた場合、低い方に揃っていた。
 const getData = async () => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
 
@@ -15,11 +16,10 @@ const getData = async () => {
   return data;
 };
 
-// 同じ関数で引数だけ変えてrevalidateを変えた場合、低い方に揃っていた。
 const getData2 = async () => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
 
-  const url = "https://ryo1999.com/now.php";
+  const url = "https://ryo1999.com/now2.php";
   // const url = "https://jsonplaceholder.typicode.com/users";
 
   const options = {
