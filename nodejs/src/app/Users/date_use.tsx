@@ -1,10 +1,10 @@
 import { use, useEffect, Suspense, memo, useState, cache } from "react";
-import { getData2 as getData } from "./getData2";
+import { getData } from "./getData";
 
 import CcButtons from "./date_cc";
 
 const ViewClientData = () => {
-  const { date: newDate } = use(getData());
+  const { date: newDate } = use(getData(0));
 
   return (
     <>
