@@ -1,15 +1,13 @@
 import { use, useEffect, Suspense, memo, useState, cache } from "react";
 import { getData } from "./getData";
 
-import CcButtons from "./date_cc";
-
-const ViewClientData = () => {
+const ViewClientData = ({ children }: { children: any }) => {
   const { date: newDate } = use(getData(10));
 
   return (
     <>
       <div>USE: {newDate}</div>
-      <CcButtons />
+      {children}
     </>
   );
 };

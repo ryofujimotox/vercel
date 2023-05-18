@@ -1,5 +1,6 @@
 import { use, useEffect, Suspense, memo, cache } from "react";
-import { Index as Render } from "./date_use";
+import { Index as DateUse } from "./date_use";
+import DateCc from "./date_cc";
 
 import { getData } from "./getData";
 
@@ -13,7 +14,9 @@ const main = () => {
       <div>SSR: {date}</div>
 
       <Suspense fallback={<div>SSR中</div>}>
-        <Render />
+        <DateUse>
+          <DateCc />
+        </DateUse>
       </Suspense>
     </div>
   );
