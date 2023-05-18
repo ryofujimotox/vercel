@@ -1,5 +1,5 @@
 import { use, useEffect, Suspense, memo, useState, cache } from "react";
-import { getData } from "./getData";
+import { getData2 as getData } from "./getData2";
 
 import CcButtons from "./date_cc";
 

@@ -3,9 +3,7 @@
 import { use, useEffect, Suspense, memo, useState, cache } from "react";
 import { useRouter } from "next/navigation";
 
-import { getData2 } from "./getData2";
-
-// export const revalidate = 10;
+import { getData } from "./getData";
 
 const ViewClientData = () => {
   const router = useRouter();
@@ -18,7 +16,7 @@ const ViewClientData = () => {
     set();
   }, []);
   const set = async () => {
-    const { date: _date } = await getData2();
+    const { date: _date } = await getData();
     setNewDate(_date);
   };
 
