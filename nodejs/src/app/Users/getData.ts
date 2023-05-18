@@ -10,10 +10,7 @@ const getData = async () => {
   };
 
   const res = await fetch(url, options);
-  // console.log(res);
-  const data = await res.json();
-
-  return data;
+  return res.json();
 };
 
 export { getData };
