@@ -1,41 +1,23 @@
 import { use, useEffect, Suspense, memo, cache } from "react";
-import { useRouter } from "next/navigation";
-
-// import { Index as Render } from "./render";
 import { Index as Render } from "./date_use";
 
-function Index() {
-  // return (
-  //   <Render />
-  // );
+import { getData } from "./getData";
+
+export const revalidate = 5;
+
+const main = () => {
+  const { date } = use(getData(0));
+
   return (
-    <Suspense fallback={<div>SSR中</div>}>
-      <Render />
-    </Suspense>
+    <div>
+      <div>SSR: {date}</div>
+
+      <Suspense fallback={<div>SSR中</div>}>
+        <Render />
+      </Suspense>
+    </div>
   );
-}
-
-/**
- *
- * SSRの値
- *
- * @returns
- */
-const getData = async () => {
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
-
-  const url = "https://ryo1999.com/now.php";
-  // const url = "https://jsonplaceholder.typicode.com/users";
-
-  const options = {
-    next: { revalidate: 60 },
-  };
-
-  const res = await fetch(url, options);
-  // console.log(res);
-  const data = await res.json();
-
-  return data;
 };
 
-export { Index, getData };
+const Index = main;
+export { Index };

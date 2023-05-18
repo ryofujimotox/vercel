@@ -1,5 +1,5 @@
 import { use, useEffect, Suspense, memo, useState, cache } from "react";
-import { getData } from "./index";
+import { getData } from "./getData";
 
 import CcButtons from "./date_cc";
 
@@ -11,10 +11,9 @@ const ViewClientData = () => {
       <div>USE: {newDate}</div>
       <CcButtons />
     </>
-  )
-}
-
+  );
+};
 
 const Index = ViewClientData;
 export default Index;
-export { Index }
+export { Index };
